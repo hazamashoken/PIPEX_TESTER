@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    error_handling_m.sh                                :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ael-bekk <ael-bekk <ael-bekk@student.13    +#+  +:+       +#+         #
+#    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 14:44:56 by ael-bekk          #+#    #+#              #
-#    Updated: 2022/02/17 17:19:09 by ael-bekk         ###   ########.fr        #
+#    Updated: 2022/10/01 14:09:26 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ timeout "$1" "in_file" "catds /dev/random" "ls" "outfile"
 find_smae_err=`cat my_error | grep -a "command not found\|Command not found" | wc -l`
 ls > outfile2
 different=`diff outfile outfile2`
-if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$different" = "" ] 
+if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$different" = "" ]
     then
     echo "${GREEN}[OK]${RESET}\n"
 else
@@ -154,7 +154,7 @@ touch outfile2
 echo "${PURPLE}==============>Test 7${RESET}"
 printf "${WHITE}\t< exist_input /bin/caqwdt  | /bin/lsqwd -ls                                      : ${RESET}"
 timeout "$1" "in_file" "/bin/caqwdt" "/bin/lsqwd -ls ../" "outfile"
-find_smae_err=`cat my_error | grep -a "no such file or directory\|No such file or directory" | wc -l`
+find_smae_err=`cat my_error | grep -a "command not found\|Command not found" | wc -l`
 if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "2" ]
     then
     echo "${GREEN}[OK]${RESET}\n"
@@ -166,7 +166,7 @@ touch outfile2
 echo "${PURPLE}==============>Test 8${RESET}"
 printf "${WHITE}\t< exist_input /srcs/a.out  | ls                                                  : ${RESET}"
 timeout "$1" "in_file" /srcs/a.out "ls" "outfile"
-find_smae_err=`cat my_error | grep -a "no such file or directory\|No such file or directory" | wc -l`
+find_smae_err=`cat my_error | grep -a "command not found\|Command not found" | wc -l`
 ls > outfile2
 different=`diff outfile outfile2`
 if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$different" = "" ]

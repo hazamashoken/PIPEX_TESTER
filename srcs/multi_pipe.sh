@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    multi_pipe.sh                                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ael-bekk <ael-bekk <ael-bekk@student.13    +#+  +:+       +#+         #
+#    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 14:44:51 by ael-bekk          #+#    #+#              #
-#    Updated: 2022/02/17 17:00:31 by ael-bekk         ###   ########.fr        #
+#    Updated: 2022/10/01 14:06:43 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -198,12 +198,12 @@ echo "sgfefeqd qwdqwdddafasd s+64 65 30 9 2 92 ad asd asd as d asd\n asdasd a da
 	    echo "${RED}[KO]${RESET}\n"
 	fi
 	sleep 0.7
-	
+
 	echo "${PURPLE}==============>Test 9${RESET}"
 	printf "${WHITE}\tsleep 9 | sleep 1 | sleep 3 | sleep 4 | sleep 5 | sleep 2       : ${RESET}"
 	SECONDS=0;
-	timeout2_1 "$1" "in_filsfe" "sleep 9" "sleep 1" "sleep 3" "sleep 4" "sleep 5" "sleep 2" "outfile"
-	if [ "$status" = "finished" ] && [ "$SECONDS" -eq "5" ]
+	timeout2_1 "$1" "in_file" "sleep 9" "sleep 1" "sleep 3" "sleep 4" "sleep 5" "sleep 2" "outfile"
+	if [ "$status" = "finished" ] && [ "$SECONDS" -eq "9" ]
 	    then
 	    echo "${GREEN}[OK]${RESET}\n"
 	else
