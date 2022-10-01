@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 14:44:56 by ael-bekk          #+#    #+#              #
-#    Updated: 2022/10/01 14:09:26 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/01 14:12:34 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,7 +113,7 @@ echo "${PURPLE}==============>Test 4${RESET}"
 printf "${WHITE}\t< exist_input csdfat | wsdfc -cl                                                 : ${RESET}"
 timeout "$1" "in_file" "cafat" "sdfwc -cl" "outfile"
 find_smae_err=`cat my_error | grep -a "command not found\|Command not found" | wc -l`
-if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "2" ]
+if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ]
     then
     echo "${GREEN}[OK]${RESET}\n"
 else

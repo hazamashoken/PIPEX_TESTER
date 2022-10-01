@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    error_handling_h.sh                                :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ael-bekk <ael-bekk <ael-bekk@student.13    +#+  +:+       +#+         #
+#    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 14:45:14 by ael-bekk          #+#    #+#              #
-#    Updated: 2022/02/17 17:20:04 by ael-bekk         ###   ########.fr        #
+#    Updated: 2022/10/01 14:28:24 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,7 +111,7 @@ echo "sgfefeqd qwdqwdddafasd s+64 65 30 9 2 92 ad asd lim asd as d asd\n asdasd 
 	timeout "$1" "here_doc " lim "cat /dev/random" "head -n 5" "outfile"
     find_smae_err=`cat my_error | grep -a "no such file or directory\|No such file or directory" | wc -l`
     find_smae_err2=`cat my_error | grep -a "command not found\|Command not found" | wc -l`
-	if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$find_smae_err2" -eq "0" ] 
+	if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$find_smae_err2" -eq "0" ]
 	    then
 	    echo "${GREEN}[OK]${RESET}\n"
 	else
@@ -140,7 +140,19 @@ echo "sgfefeqd qwdqwdddafasd s+64 65 30 9 2 92 ad asd lim asd as d asd\n asdasd 
     find_smae_err=`cat my_error`
     < in_file3 cat | head -n 5 | ls  > outfile2
 	different=`diff outfile outfile2`
-	if [ "$status" = "finished" ] && [ "$different" = "" ] && [ "$find_smae_err" = "" ]
+	if [ "$status" = "finished" ]
+	    then
+	    echo "${GREEN}[OK]${RESET} "
+	else
+	    echo "${RED}[KO]${RESET} "
+	fi
+	if [ "$different" = "" ]
+	    then
+	    echo "${GREEN}[OK]${RESET} "
+	else
+	    echo "${RED}[KO]${RESET} "
+	fi
+	if [ "$find_smae_err" = "" ]
 	    then
 	    echo "${GREEN}[OK]${RESET}\n"
 	else
