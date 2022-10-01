@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    error_handling_b.sh                                :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ael-bekk <ael-bekk <ael-bekk@student.13    +#+  +:+       +#+         #
+#    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 11:22:13 by ael-bekk          #+#    #+#              #
-#    Updated: 2022/02/17 17:18:10 by ael-bekk         ###   ########.fr        #
+#    Updated: 2022/10/01 14:35:53 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,7 @@ echo "${PURPLE}==============>Test 1${RESET}"
 printf "${WHITE}\t< non_exist_input cat /dev/random | head -n 5                          		       : ${RESET}"
 timeout "$1" "in_fsdile" "cat /dev/random" "head -n 5" "outfile"
 find_smae_err=`cat my_error | grep -a "no such file or directory\|No such file or directory" | wc -l`
-if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] 
+if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ]
     then
     echo "${GREEN}[OK]${RESET}\n"
 else
@@ -122,7 +122,7 @@ sleep 0.7
 	find_smae_err=`cat my_error | grep -a "command not found\|Command not found" | wc -l`
 	ls | wc -l > outfile2
 	different=`diff outfile outfile2`
-	if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$different" = "" ] 
+	if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$different" = "" ]
 		then
 		echo "${GREEN}[OK]${RESET}\n"
 	else
@@ -155,7 +155,25 @@ sleep 0.7
 	printf "" > vide
 	< vide cat > outfile2
 	different=`diff outfile outfile2`
-	if [ "$status" = "finished" ] && [ "$different" = "" ] && [ "$find_smae_err" -eq "2" ] && [ "$find_smae_err2" -eq "1" ]
+	if [ "$status" = "finished" ]
+	    then
+	    echo "${GREEN}[OK]${RESET} "
+	else
+	    echo "${RED}[KO]${RESET} "
+	fi
+	if [ "$different" = "" ]
+	    then
+	    echo "${GREEN}[OK]${RESET} "
+	else
+	    echo "${RED}[KO]${RESET} "
+	fi
+	if [ "$find_smae_err" -eq "2" ]
+	    then
+	    echo "${GREEN}[OK]${RESET} "
+	else
+	    echo "${RED}[KO]${RESET} "
+	fi
+	if [ "$find_smae_err2" -eq "1" ]
 	    then
 	    echo "${GREEN}[OK]${RESET}\n"
 	else
