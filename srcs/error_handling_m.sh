@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 14:44:56 by ael-bekk          #+#    #+#              #
-#    Updated: 2022/10/01 18:40:41 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/01 18:45:09 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,7 +113,13 @@ echo "${PURPLE}==============>Test 4${RESET}"
 printf "${WHITE}\t< exist_input csdfat | wsdfc -cl                                                 : ${RESET}"
 timeout "$1" "in_file" "cafat" "sdfwc -cl" "outfile"
 find_smae_err=`cat my_error | grep -a "command not found\|Command not found" | wc -l`
-if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "2" ]
+if [ "$status" = "finished" ]
+    then
+    echo "${GREEN}[OK]${RESET} "
+else
+    echo "${RED}[KO]${RESET} "
+fi
+if [ "$find_smae_err" -eq "2" ]
     then
     echo "${GREEN}[OK]${RESET}\n"
 else
@@ -127,7 +133,19 @@ printf "${WHITE}\t< non_exist_input /bin/catsdc | wcss -cl                      
 timeout "$1" "in_fisdle" "/bin/catsdc" "wcss -cl" "outfile"
 find_smae_err=`cat my_error | grep -a "no such file or directory\|No such file or directory" | wc -l`
 find_smae_err2=`cat my_error | grep "command not found\|Command not found" | wc -l`
-if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$find_smae_err2" -eq "1" ]
+if [ "$status" = "finished" ]
+    then
+    echo "${GREEN}[OK]${RESET}\n"
+else
+    echo "${RED}[KO]${RESET}\n"
+fi
+if [ "$find_smae_err" -eq "1" ]
+    then
+    echo "${GREEN}[OK]${RESET}\n"
+else
+    echo "${RED}[KO]${RESET}\n"
+fi
+if [ "$find_smae_err2" -eq "1" ]
     then
     echo "${GREEN}[OK]${RESET}\n"
 else
