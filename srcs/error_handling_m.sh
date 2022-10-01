@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 14:44:56 by ael-bekk          #+#    #+#              #
-#    Updated: 2022/10/01 14:34:10 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/01 18:40:41 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,7 +127,7 @@ printf "${WHITE}\t< non_exist_input /bin/catsdc | wcss -cl                      
 timeout "$1" "in_fisdle" "/bin/catsdc" "wcss -cl" "outfile"
 find_smae_err=`cat my_error | grep -a "no such file or directory\|No such file or directory" | wc -l`
 find_smae_err2=`cat my_error | grep "command not found\|Command not found" | wc -l`
-if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$find_smae_err" -eq "1" ]
+if [ "$status" = "finished" ] && [ "$find_smae_err" -eq "1" ] && [ "$find_smae_err2" -eq "1" ]
     then
     echo "${GREEN}[OK]${RESET}\n"
 else
